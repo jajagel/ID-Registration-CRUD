@@ -10,7 +10,7 @@ body {
   	margin: 0;
 }
 .navtop {
-  	background-color: #3f69a8;
+  	background-color: #084516;
   	height: 60px;
   	width: 100%;
   	border: 0;
@@ -36,7 +36,7 @@ body {
 .navtop div a {
   	padding: 0 20px;
   	text-decoration: none;
-  	color: #c5d2e5;
+  	color: white;
   	font-weight: bold;
 }
 .navtop div a i {
@@ -59,7 +59,7 @@ body {
 .read .create-contact {
   	display: inline-block;
   	text-decoration: none;
-  	background-color: #38b673;
+  	background-color: #084516;
   	font-weight: bold;
   	font-size: 14px;
   	color: #FFFFFF;
@@ -107,7 +107,7 @@ body {
   	background-color: #fbfcfc;
 }
 .read table tbody tr:hover {
-  	background-color: #376ab7;
+  	background-color: #7d827f;
 }
 .read table tbody tr:hover td {
   	color: #FFFFFF;
@@ -164,7 +164,7 @@ body {
 }
 .update form input[type="submit"] {
   	display: block;
-  	background-color: #38b673;
+  	background-color: #084516;
   	border: 0;
   	font-weight: bold;
   	font-size: 14px;
@@ -182,7 +182,7 @@ body {
 .delete .yesno a {
   	display: inline-block;
   	text-decoration: none;
-  	background-color: #38b673;
+  	background-color: #084516;
   	font-weight: bold;
   	color: #FFFFFF;
   	padding: 10px 15px;

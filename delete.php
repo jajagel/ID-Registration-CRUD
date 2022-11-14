@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
             // User clicked the "Yes" button, delete record
             $stmt = $pdo->prepare('DELETE FROM contacts WHERE id = ?');
             $stmt->execute([$_GET['id']]);
-            $msg = 'You have deleted the contact!';
+            $msg = 'Student ID Record Deleted!';
         } else {
             // User clicked the "No" button, redirect them back to the read page
             header('Location: read.php');
@@ -32,11 +32,11 @@ if (isset($_GET['id'])) {
 <?=template_header('Delete')?>
 
 <div class="content delete">
-    <h2>Delete Contact #<?=$contact['id']?></h2>
+    <h2>Delete Student ID No. <?=$contact['sid']?></h2>
     <?php if ($msg): ?>
     <p><?=$msg?></p>
     <?php else: ?>
-    <p>Are you sure you want to delete contact #<?=$contact['id']?>?</p>
+    <p>Are you sure you want to delete?</p>
     <div class="yesno">
         <a href="delete.php?id=<?=$contact['id']?>&confirm=yes">Yes</a>
         <a href="delete.php?id=<?=$contact['id']?>&confirm=no">No</a>

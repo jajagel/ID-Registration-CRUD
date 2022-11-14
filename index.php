@@ -8,7 +8,7 @@ include 'functions.php';
 <?=template_header('Home')?>
 
 <div class="content">
-	<h2>Home</h2>
+	<h2>ID Registration</h2>
 	<p>Welcome to the home page!</p>
 </div>
 

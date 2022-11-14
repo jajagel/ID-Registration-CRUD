@@ -9,13 +9,20 @@ if (!empty($_POST)) {
     $id = isset($_POST['id']) && !empty($_POST['id']) && $_POST['id'] != 'auto' ? $_POST['id'] : NULL;
     // Check if POST variable "name" exists, if not default the value to blank, basically the same for all variables
     $name = isset($_POST['name']) ? $_POST['name'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
-    $title = isset($_POST['title']) ? $_POST['title'] : '';
-    $created = isset($_POST['created']) ? $_POST['created'] : date('Y-m-d H:i:s');
+    
+
+    $birthdate = isset($_POST['birthdate']) ? $_POST['birthdate'] : '';
+    $mname = isset($_POST['mname']) ? $_POST['mname'] : '';
+    $lname = isset($_POST['lname']) ? $_POST['lname'] : '';
+    $address = isset($_POST['address']) ? $_POST['address'] : '';
+    $cpname = isset($_POST['cpname']) ? $_POST['cpname'] : '';
+    $cpnum = isset($_POST['cpnum']) ? $_POST['cpnum'] : '';
+    $sid = isset($_POST['sid']) ? $_POST['sid'] : '';
+    $course = isset($_POST['course']) ? $_POST['course'] : '';
+
     // Insert new record into the contacts table
-    $stmt = $pdo->prepare('INSERT INTO contacts VALUES (?, ?, ?, ?, ?, ?)');
-    $stmt->execute([$id, $name, $email, $phone, $title, $created]);
+    $stmt = $pdo->prepare('INSERT INTO contacts VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
+    $stmt->execute([$id, $sid, $name, $mname, $lname, $course, $address, $birthdate, $cpname, $cpnum]);
     // Output message
     $msg = 'Created Successfully!';
 }
@@ -24,20 +31,37 @@ if (!empty($_POST)) {
 <?=template_header('Create')?>
 
 <div class="content update">
-    <h2>Create Contact</h2>
+    <h2></h2>
     <form action="create.php" method="post">
-        <label for="id">ID</label>
-        <label for="name">Name</label>
-        <input type="text" name="id" placeholder="26" value="auto" id="id">
-        <input type="text" name="name" placeholder="John Doe" id="name">
-        <label for="email">Email</label>
-        <label for="phone">Phone</label>
-        <input type="text" name="email" placeholder="johndoe@example.com" id="email">
-        <input type="text" name="phone" placeholder="2025550143" id="phone">
-        <label for="title">Title</label>
-        <label for="created">Created</label>
-        <input type="text" name="title" placeholder="Employee" id="title">
-        <input type="datetime-local" name="created" value="<?=date('Y-m-d\TH:i')?>" id="created">
+       
+        <input type="hidden" name="id" placeholder="1" value="auto" id="id">
+
+        <label for="name">School ID</label>
+        <label for="name">First Name</label>
+        <input type="text" name="sid" placeholder="School ID" id="sid" required maxlength = "11">
+        <input type="text" name="name" placeholder="First Name" id="name" required>
+        
+
+        <label for="mname">Middle Initial</label>
+        <label for="lname">Last Name</label>
+        <input type="text" name="mname" placeholder="Middle Initial" id="mname" required maxlength = "1">
+        <input type="text" name="lname" placeholder="Last Name" id="lname" required>
+
+        <label for="lname">Course</label>
+        <label for="lname">Address</label>
+        <input type="text" name="course" placeholder="Course" id="course" required>
+        <input type="text" name="address" placeholder="Address" id="address" required>
+
+        <label for="lname">Birthdate</label>
+        <label for="lname">Contact Person Name</label>
+        <input type="date" name="birthdate" placeholder="Birthdate" id="birthdate" required>
+        <input type="text" name="cpname" placeholder="Contact Person Name" id="cpname" required>
+
+
+        <label for="lname">Contact Person Number</label>
+        <label></label>
+        <input type="text" name="cpnum" placeholder="Contact Person Number" id="cpnum" required maxlength = "11">
+
         <input type="submit" value="Create">
     </form>
     <?php if ($msg): ?>

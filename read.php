@@ -22,29 +22,36 @@ $num_contacts = $pdo->query('SELECT COUNT(*) FROM contacts')->fetchColumn();
 <?=template_header('Read')?>
 
 <div class="content read">
-	<h2>Read Contacts</h2>
-	<a href="create.php" class="create-contact">Create Contact</a>
+	<h2>View Student ID Records</h2>
+	<a href="create.php" class="create-contact">Add Record</a>
 	<table>
         <thead>
             <tr>
-                <td>#</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td>Title</td>
-                <td>Created</td>
+                <td>School ID</td>
+                <td>First Name</td>
+                <td>Middle Initial</td>
+                <td>Last Name</td>
+                <td>Course</td>
+                <td>Address</td>
+                <td>Birthdate</td>
+                <td>Contact Person Name</td>
+                <td>Contact Person Number</td>
                 <td></td>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($contacts as $contact): ?>
             <tr>
-                <td><?=$contact['id']?></td>
+                <td><?=$contact['sid']?></td>
                 <td><?=$contact['name']?></td>
-                <td><?=$contact['email']?></td>
-                <td><?=$contact['phone']?></td>
-                <td><?=$contact['title']?></td>
-                <td><?=$contact['created']?></td>
+                <td><?=$contact['mname']?></td>
+                <td><?=$contact['lname']?></td>
+                <td><?=$contact['course']?></td>
+                <td><?=$contact['address']?></td>
+                <td><?=$contact['birthdate']?></td>
+                <td><?=$contact['cpname']?></td>
+                <td><?=$contact['cpnum']?></td>
+
                 <td class="actions">
                     <a href="update.php?id=<?=$contact['id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
                     <a href="delete.php?id=<?=$contact['id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
